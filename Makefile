@@ -35,4 +35,4 @@ attack: src/attack.cpp src/shuffle.cpp ${TEST}
 	${CPP} ${CFLAGS} src/attack.cpp sample_z_small.o bdlop.o ${TEST} ${BENCH} ${BLAKE3} -o attack ${LIBS}
 
 clean:
-	rm *.o bdlop bgv shuffle pismall pibnd
+	rm *.o bdlop bgv shuffle pismall pibnd attack
