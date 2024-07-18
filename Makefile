@@ -6,7 +6,7 @@ BENCH = src/bench.c src/cpucycles.c
 TEST = src/test.c
 LIBS = deps/libnfllib_static.a -lgmp -lmpfr -L deps/ -lflint -lquadmath
 
-all: bdlop bgv shuffle pismall pibnd
+all: bdlop bgv shuffle pismall pibnd attack
 
 bdlop: src/bdlop.cpp src/bgv.cpp ${TEST} ${BENCH} ${INCLUDES}
 	${CPP} ${CFLAGS} -c src/bgv.cpp -o bgv.o
@@ -28,6 +28,11 @@ pibnd: src/pibnd.cpp ${TEST} ${BENCH} ${INCLUDES}
 	${CPP} ${CFLAGS} -c src/sample_z_small.c -o sample_z_small.o
 	${CPP} ${CFLAGS} -c src/sample_z_large.c -o sample_z_large.o
 	${CPP} ${CFLAGS} -DMAIN src/pibnd.cpp sample_z_small.o sample_z_large.o ${TEST} ${BENCH} ${BLAKE3} -o pibnd ${LIBS}
+
+attack: src/attack.cpp src/shuffle.cpp ${TEST}
+	${CPP} ${CFLAGS} -c src/sample_z_small.c -o sample_z_small.o
+	${CPP} ${CFLAGS} -c src/bdlop.cpp -o bdlop.o
+	${CPP} ${CFLAGS} src/attack.cpp sample_z_small.o bdlop.o ${TEST} ${BENCH} ${BLAKE3} -o attack ${LIBS}
 
 clean:
 	rm *.o bdlop bgv shuffle pismall pibnd
