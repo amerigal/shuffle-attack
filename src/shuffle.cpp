@@ -15,7 +15,9 @@
 /* Private definitions                                                        */
 /*============================================================================*/
 
+#ifndef MSGS
 #define MSGS        1000
+#endif
 
 static void lin_hash(params::poly_q & beta, comkey_t & key, commit_t x,
 		commit_t y, params::poly_q alpha[2], params::poly_q & u,
