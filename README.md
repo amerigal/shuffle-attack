@@ -3,7 +3,7 @@
 Code accompannying the paper "Verifiable Mix-Nets and Distributed Decryption for Voting from Lattice-Based Assumptions", accepted for publication at ACM CCS 2023.
 
 > [!CAUTION]
-> This repository is a fork of https://github.com/dfaranha/lattice-verifiable-mixnet. It presents an [attack](src/attack.cpp) that exploits a soundness issue in the proof of shuffle from the paper.
+> This repository is a fork of https://github.com/dfaranha/lattice-verifiable-mixnet. It presents an [attack](src/attack.cpp) that demonstrates a soundness issue in the proof of shuffle from the paper.
 
 Depedencies are the [NFLlib](https://github.com/quarkslab/NFLlib) and [FLINT](https://flintlib.org/doc/) 2.9 libraries.
 NFLLib is already included in this repository, but instructions for installing its dependencies can be found in the link above.
